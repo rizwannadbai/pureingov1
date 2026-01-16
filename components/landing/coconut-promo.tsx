@@ -15,9 +15,8 @@ export function CoconutPromo() {
             id: "coconut-water",
             name: "Fresh Tender Coconut Water",
             price: 69,
-            quantity: 1,
             image: "/coconut-water.jpg",
-        })
+        }, 1)
         toast.success("🥥 Coconut Water added to cart!")
         openCart()
     }
