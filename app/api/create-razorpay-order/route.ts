@@ -1,12 +1,27 @@
 import { NextResponse } from 'next/server'
 import Razorpay from 'razorpay'
 
-const razorpay = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID!,
-    key_secret: process.env.RAZORPAY_KEY_SECRET!,
-})
+// Only initialize Razorpay if keys are present
+const razorpayKeyId = process.env.RAZORPAY_KEY_ID
+const razorpayKeySecret = process.env.RAZORPAY_KEY_SECRET
+
+let razorpay: Razorpay | null = null
+if (razorpayKeyId && razorpayKeySecret) {
+    razorpay = new Razorpay({
+        key_id: razorpayKeyId,
+        key_secret: razorpayKeySecret,
+    })
+}
 
 export async function POST(req: Request) {
+    // Check if Razorpay is configured
+    if (!razorpay) {
+        return NextResponse.json(
+            { error: 'Payment gateway not configured' },
+            { status: 503 }
+        )
+    }
+
     try {
         const { amount, currency = 'INR', receipt } = await req.json()
 
