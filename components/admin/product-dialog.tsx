@@ -121,7 +121,7 @@ export function ProductDialog({ open, onOpenChange, product, onSuccess }: Produc
                             <Label htmlFor="category">Category *</Label>
                             <Select
                                 value={formData.category}
-                                onValueChange={(value) => setFormData({ ...formData, category: value })}
+                                onValueChange={(value) => setFormData({ ...formData, category: value as any })}
                             >
                                 <SelectTrigger>
                                     <SelectValue />
@@ -140,7 +140,7 @@ export function ProductDialog({ open, onOpenChange, product, onSuccess }: Produc
                             <Label htmlFor="type">Type</Label>
                             <Select
                                 value={formData.type}
-                                onValueChange={(value) => setFormData({ ...formData, type: value })}
+                                onValueChange={(value) => setFormData({ ...formData, type: value as any })}
                             >
                                 <SelectTrigger>
                                     <SelectValue />
