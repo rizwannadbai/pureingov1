@@ -278,7 +278,7 @@ export default function ProductsPage() {
                                                     <span>{cat.name}</span>
                                                     <span className={`text-xs px-1.5 py-0.5 rounded-full ${isActive ? 'bg-white/20' : 'bg-gray-100'
                                                         }`}>
-                                                        {cat.count}
+                                                        {addonProducts[cat.id]?.length || 0}
                                                     </span>
                                                 </button>
                                             )
