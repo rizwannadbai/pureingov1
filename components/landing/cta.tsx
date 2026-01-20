@@ -4,6 +4,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, Leaf } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { BackgroundBeams } from "@/components/ui/background-beams"
 
 export function CTA() {
     return (
@@ -19,6 +20,9 @@ export function CTA() {
                     {/* Decorative Elements */}
                     <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                     <div className="absolute bottom-0 left-0 w-72 h-72 bg-fresh-400/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+                    {/* Background Beams Animation */}
+                    <BackgroundBeams className="opacity-70" />
 
                     {/* Floating Leaf Icons */}
                     <div className="absolute top-10 right-10 w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center animate-float">

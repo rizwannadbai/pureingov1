@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Droplet, Package, Sprout, ArrowRight, Crown, Gift } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -11,7 +12,7 @@ const mainProducts = [
         name: "Daily Fresh Fruit Box",
         description: "For individuals - fresh fruits every morning",
         price: "₹2,899",
-        emoji: "🍎",
+        image: "/daily_fruit_box.png",
         color: "from-red-500 to-orange-500",
         bgColor: "bg-gradient-to-br from-red-50 to-orange-50",
         features: ["1-person portion", "Daily delivery", "Premium fruits"],
@@ -21,7 +22,7 @@ const mainProducts = [
         name: "Couple Fruit Box",
         description: "Double portion for couples",
         price: "₹4,999",
-        emoji: "🍊",
+        image: "/couple_fruit_box.png",
         color: "from-orange-500 to-amber-500",
         bgColor: "bg-gradient-to-br from-orange-50 to-amber-50",
         features: ["2-person portion", "Premium mix", "Smart packaging"],
@@ -31,7 +32,7 @@ const mainProducts = [
         name: "Family Fruit Box",
         description: "For families of 3-5 members",
         price: "₹8,999",
-        emoji: "🍇",
+        image: "/family_fruit_box.png",
         color: "from-purple-500 to-pink-500",
         bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
         features: ["3-5 member portions", "Weekly variety", "Best value"],
@@ -123,7 +124,14 @@ export function Categories() {
                                         {product.price}/mo
                                     </div>
 
-                                    <div className="text-5xl mb-4">{product.emoji}</div>
+                                    <div className="relative w-24 h-24 mb-4">
+                                        <Image
+                                            src={product.image}
+                                            alt={product.name}
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
 
                                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-fresh-600 transition-colors">
                                         {product.name}

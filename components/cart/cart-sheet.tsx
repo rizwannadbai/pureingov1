@@ -168,9 +168,18 @@ export function CartSheet() {
                                             key={item.id}
                                             className="flex gap-4 p-3 rounded-xl bg-fresh-50/50 border border-fresh-100"
                                         >
-                                            {/* Item Image Placeholder */}
-                                            <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-fresh-100 to-fresh-200 flex items-center justify-center flex-shrink-0">
-                                                <span className="text-2xl">{getItemEmoji(item.name)}</span>
+                                            {/* Item Image */}
+                                            <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-fresh-100 to-fresh-200 flex items-center justify-center flex-shrink-0 overflow-hidden relative">
+                                                {item.image ? (
+                                                    <Image
+                                                        src={item.image}
+                                                        alt={item.name}
+                                                        fill
+                                                        className="object-cover"
+                                                    />
+                                                ) : (
+                                                    <span className="text-2xl">{getItemEmoji(item.name)}</span>
+                                                )}
                                             </div>
 
                                             {/* Item Details */}
@@ -267,8 +276,17 @@ export function CartSheet() {
                                                     key={addon.id}
                                                     className="flex items-center gap-3 p-2 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-100"
                                                 >
-                                                    <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-lg flex-shrink-0">
-                                                        {getItemEmoji(addon.name)}
+                                                    <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-lg flex-shrink-0 overflow-hidden relative">
+                                                        {addon.image ? (
+                                                            <Image
+                                                                src={addon.image}
+                                                                alt={addon.name}
+                                                                fill
+                                                                className="object-cover"
+                                                            />
+                                                        ) : (
+                                                            <span>{getItemEmoji(addon.name)}</span>
+                                                        )}
                                                     </div>
                                                     <div className="flex-1 min-w-0">
                                                         <p className="text-sm font-medium text-foreground truncate">
@@ -372,8 +390,17 @@ export function CartSheet() {
                         <div className="py-4">
                             {/* Selected Product */}
                             <div className="flex items-center gap-3 p-3 rounded-xl bg-fresh-50 border border-fresh-100 mb-4">
-                                <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-2xl">
-                                    {getItemEmoji(selectedAddon.name)}
+                                <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-2xl overflow-hidden relative">
+                                    {selectedAddon.image ? (
+                                        <Image
+                                            src={selectedAddon.image}
+                                            alt={selectedAddon.name}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    ) : (
+                                        <span>{getItemEmoji(selectedAddon.name)}</span>
+                                    )}
                                 </div>
                                 <div>
                                     <p className="font-medium text-foreground">{selectedAddon.name}</p>

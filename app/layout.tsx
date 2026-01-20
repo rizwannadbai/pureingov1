@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
@@ -13,13 +13,23 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#22c55e",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Pureingo - Fresh Fruits & Vegetables Delivered Daily",
   description: "Get farm-fresh fruits and vegetables delivered to your doorstep. 100% organic, same-day delivery, and quality guaranteed. Order now and taste the freshness!",
   keywords: ["fresh fruits", "vegetables", "organic", "delivery", "grocery", "farm fresh", "Mumbai"],
   authors: [{ name: "Pureingo" }],
   manifest: "/manifest.json",
-  themeColor: "#22c55e",
+  icons: {
+    icon: "/icons/icon-144x144.svg",
+    apple: "/icons/icon-144x144.svg",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
